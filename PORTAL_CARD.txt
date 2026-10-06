@@ -1,0 +1,4 @@
+MAYA COMMAND CENTER
+Agents • Automation • Intelligence
+Port 8065
+The injected portal card automatically uses the same hostname as the portal, so it works on localhost and through Tailscale.

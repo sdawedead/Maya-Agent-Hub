@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Maya Command Center</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">NOMADIC TIDE // PRIVATE INFRASTRUCTURE</div>
+        <h1>MAYA COMMAND CENTER</h1>
+        <p>Agents â€¢ automation â€¢ server intelligence</p>
+      </div>
+      <div class="status"><span class="dot"></span><span id="clock">ONLINE</span></div>
+    </header>
+
+    <section class="accessbar">
+      <span>v<span id="version">2.1</span></span>
+      <a id="localUrl" href="http://localhost:8065">LOCALHOST</a>
+      <a id="tailscaleUrl" href="#" class="mutedlink">TAILSCALE: detectingâ€¦</a>
+    </section>
+
+    <section class="hero">
+      <div><span class="big" id="onlineCount">â€“</span><small>AGENTS ENABLED</small></div>
+      <div><span class="big" id="workingCount">â€“</span><small>WORKING NOW</small></div>
+      <div><span class="big" id="alertCount">â€“</span><small>ALERTS</small></div>
+      <button id="runAll">RUN ALL AGENTS</button>
+    </section>
+
+    <section id="grid" class="grid"></section>
+
+    <section class="research">
+      <h2>RESEARCH LAB</h2>
+      <div class="askrow"><input id="researchQuery" placeholder="ÄŒo mÃ¡ Research Agent preskÃºmaÅ¥?"><button id="researchBtn">RUN RESEARCH</button></div>
+    </section>
+
+    <section class="history">
+      <h2>ACTIVITY</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+  <div id="modal" class="modal"><div class="modal-panel"><button id="modalClose" class="modal-close">Ã—</button><div class="eyebrow">AGENT REPORT</div><h2 id="detailTitle">DETAILS</h2><p id="detailSummary" class="modal-summary"></p><div id="detailBody"></div></div></div>
+  <script src="/app.js"></script>
+<script id="MAYA_COMMAND_CENTER_V21">
+(function(){
+  function install(){
+    if(document.getElementById('maya-command-center-link-v21')) return;
+    var url=location.protocol+'//'+location.hostname+':8065/';
+    var all=[].slice.call(document.querySelectorAll('a,button'));
+    var ref=all.find(function(el){return (el.textContent||'').toUpperCase().indexOf('STORAGE NETWORK')>=0;}) ||
+            all.find(function(el){return (el.textContent||'').toUpperCase().indexOf('MINIFARMA')>=0;}) ||
+            all.find(function(el){return (el.textContent||'').toUpperCase().indexOf('SERVER MONITOR')>=0;});
+    if(ref){
+      var base=ref.closest('a')||ref;
+      if(base.tagName==='A'){
+        var a=base.cloneNode(true); a.id='maya-command-center-link-v21'; a.href=url; a.target='_self';
+        var textNode=[].slice.call(a.querySelectorAll('*')).reverse().find(function(x){var t=(x.textContent||'').trim();return t && t.length<80;});
+        if(textNode) textNode.textContent='MAYA COMMAND CENTER â†—'; else a.textContent='MAYA COMMAND CENTER â†—';
+        base.parentElement.appendChild(a); return;
+      }
+    }
+    var a=document.createElement('a'); a.id='maya-command-center-link-v21'; a.href=url; a.textContent='âœ¦  MAYA COMMAND CENTER';
+    a.style.cssText='position:fixed;right:18px;bottom:18px;z-index:2147483647;padding:14px 18px;border:1px solid #5bc7ff;border-radius:14px;background:linear-gradient(135deg,#0b315d,#402d83);color:white;text-decoration:none;font:800 12px Segoe UI,Arial;letter-spacing:.08em;box-shadow:0 12px 40px #000b';
+    document.body.appendChild(a);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install); else install();
+  setTimeout(install,1200);
+})();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8065,
+    "tailscale_only_remote": true
+  },
+  "profiles": {
+    "business": {
+      "region": "Your region",
+      "goal_monthly_eur": 500
+    },
+    "jobs": {
+      "region": ["Your city"],
+      "priority": ["IT", "support", "administration"]
+    },
+    "land": {
+      "center": "Your city",
+      "radius_km": 30,
+      "max_price_eur": 10000
+    }
+  },
+  "agents": {
+    "business_hunter": {"enabled": false, "interval_minutes": 360},
+    "job_hunter": {"enabled": false, "interval_minutes": 180},
+    "server_caretaker": {"enabled": false, "interval_minutes": 5, "services": []},
+    "network_watcher": {"enabled": false, "interval_minutes": 15},
+    "land_hunter": {"enabled": false, "interval_minutes": 360},
+    "photo_librarian": {"enabled": false, "interval_minutes": 720, "folders": []},
+    "nomadic_content": {"enabled": false, "interval_minutes": 720},
+    "research_agent": {"enabled": false, "interval_minutes": 1440},
+    "maya_coordinator": {"enabled": true, "interval_minutes": 30}
+  }
+}
